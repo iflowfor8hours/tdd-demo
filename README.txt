@@ -1,6 +1,8 @@
 Lettuce Demo for tap|QA
 
 To set up initially:
+Make sure you have pip and virtualenv installed.  Instructions for Mac and Linux, or Windows with Cygwin.
+
 cd /path/to/lettuce-demo
 virtualenv venv
 source venv/bin/activate
