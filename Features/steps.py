@@ -24,8 +24,9 @@ def google_search(step, google_search_text, button_name):
 	world.browser.find_element_by_xpath('.//button[@value="' + button_name + '"]').click()
 	time.sleep(1)
 
-@step(u'(When|And) I click on the "(.+)" link')
-def click_partial_link_text(step, when_and, partial_link_text):
+@step(u'When I click on the "(.+)" link')
+@step(u'And I click on the "(.+)" link')
+def click_partial_link_text(step, partial_link_text):
 	time.sleep(2)
 	link = world.browser.find_element_by_partial_link_text(partial_link_text)
 	try:
@@ -39,13 +40,15 @@ def click_partial_link_text(step, when_and, partial_link_text):
 def current_page(step, url):
 	assert world.browser.current_url == url
 
-@step(u'(Then|And) I see text "(.+)"')
-def search_page_text(step, then_and, seen_text):
+@step(u'Then I see text "(.+)"')
+@step(u'And I see text "(.+)"')
+def search_page_text(step, seen_text):
 	assert ignore_line_breaks(seen_text) in ignore_line_breaks(world.browser.find_element_by_xpath('//body').text)
 
-@step(u'(Then|And) I see text')
-def search_page_pystring(step, then_and):
-	search_page_text(step, 'Then', step.multiline)
+@step(u'Then I see text')
+@step(u'And I see text')
+def search_page_pystring(step):
+	search_page_text(step, step.multiline)
 
 @step(u'Then I see the following leaders')
 def tap_leaders(step):
