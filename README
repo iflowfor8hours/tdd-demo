@@ -1,0 +1,24 @@
+Lettuce Demo
+
+Requirements
+---
+
+* python
+* pip
+* virtualenv
+
+Getting Started:
+---
+
+    virtualenv .venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    lettuce
+
+To run tests:
+
+    cd /path/to/lettuce-demo
+    source venv/bin/activate
+    lettuce
+
+To run specific tagged scenarios, use -t (eg lettuce -t C001)

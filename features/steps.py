@@ -24,6 +24,13 @@ def google_search(step, google_search_text, button_name):
 	world.browser.find_element_by_xpath('.//button[@value="' + button_name + '"]').click()
 	time.sleep(1)
 
+@step(u'When I search for text "(.+)" and click "(.+)"')
+def amazon_search(step, amazon_search, button_name):
+	world.browser.find_element_by_xpath('.//input[@name="search"]').send_keys(amazon_search)
+	time.sleep(1)
+	world.browser.find_element_by_xpath('.//button[@value="' + button_name + '"]').click()
+	time.sleep(1)
+
 @step(u'When I click on the "(.+)" link')
 @step(u'And I click on the "(.+)" link')
 def click_partial_link_text(step, partial_link_text):
