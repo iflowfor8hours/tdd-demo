@@ -1,23 +1,34 @@
 Feature: Demo feature
 
   @C001
-  Scenario: Google search for Amdocs returns correct homepage in results
-    Given I am on the homepage "http://www.google.com"
+	Scenario: Google search for Amdocs returns correct homepage in results
+		Given I am on the homepage "http://www.google.com"
     When I enter text "Amdocs" and click "Search"
     And I click on the "Amdocs: Telco Digital Transformation, Customer Experience" link
     Then I am brought to website "http://www.amdocs.com/pages/homepage.aspx"
 
   @C002
-  Scenario: Google search for Amdocs returns correct homepage in results
+  Scenario: Amdocs Homepage contains the correct content
     Given I am on the homepage "http://www.google.com"
     When I enter text "Amdocs" and click "Search"
     And I click on the "Amdocs: Telco Digital Transformation, Customer Experience" link
-    Then I am brought to website "http://www.amdocs.com/pages/homepage.aspx"
+    Then I see text "Digital Revolution is Changing Everything"
 
   @C003
-  Scenario: A search on amazon returns the expected item
-    Given I am on the homepage "https://www.amazon.com"
-    When I search for text "ps4" and click "Go"
-    And I click on the "PlayStation 4 500GB Console - Call of Duty Black Ops III Bundle" link
-    Then I am brought to website "https://www.amazon.com/PlayStation-500GB-Console-Black-Bundle-4/dp/B018V3ISJ2/ref=sr_1_1?ie=UTF8&qid=1470087620&sr=8-1&keywords=ps4"
-  
+  Scenario: Amdocs Vision page contains the correct sidebar links
+    Given I am on the homepage "http://www.amdocs.com/"
+    When I click on the "Vision" link
+    Then I see text "Digital Dimensions"
+    And I see text "Diversified Business"
+    And I see text "Data Empowered"
+    And I see text "Service Agility"
+
+  @C004
+  Scenario: Amdocs Solutions page contains the correct content
+    Given I am on the homepage "http://www.amdocs.com/"
+    When I click on the "Products" link
+    Then I see text "Business Solutions"
+    And I see text
+    """
+		Amdocs drives innovation in the development and implementation of products to enable service providers to capture the world of digital immediacy. Our integrated modular software portfolio spans the following domains: 
+    """
